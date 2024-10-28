@@ -32,13 +32,13 @@ public class AdminController {
 	@GetMapping("admins/{adminId}")
 	public ResponseEntity<ResponseStructure<AdminResponse>> findByAdminId(@PathVariable String  adminId){
 		AdminResponse response = adminService.findByAdminId(adminId);
-		return appResponseBuilder.success(HttpStatus.FOUND, "user found",response);
+		return appResponseBuilder.success(HttpStatus.FOUND, "admin found",response);
 	}
 
 	@PostMapping("/admins")
 	public ResponseEntity<ResponseStructure<AdminResponse>> saveAdmin(@RequestBody AdminRequest adminRequest){
 		AdminResponse response = adminService.saveAdmin(adminRequest);
-		return appResponseBuilder.success(HttpStatus.CREATED, "user created", response);
+		return appResponseBuilder.success(HttpStatus.CREATED, "admin created", response);
 	}
 
 	@PutMapping("/admins/{adminId}")
@@ -50,7 +50,7 @@ public class AdminController {
 	@GetMapping("/admins")
 	public ResponseEntity<ResponseStructure<List<AdminResponse>>> findAllAdmins(){
 		List<AdminResponse> responses = adminService.findAllUsers();
-		return appResponseBuilder.success(HttpStatus.FOUND,"users found",responses);
+		return appResponseBuilder.success(HttpStatus.FOUND,"admin found",responses);
 	}
 	
 }
