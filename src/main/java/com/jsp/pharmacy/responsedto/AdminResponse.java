@@ -1,15 +1,7 @@
-package com.jsp.pharmacy.entity;
+package com.jsp.pharmacy.responsedto;
 
-import org.springframework.data.annotation.Id;
+public class AdminResponse {
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-
-@Entity
-public class Admin {
-
-	@GeneratedValue()
-	@Id
 	private String Id;
 	private String name;
 	private double gstNo;
@@ -39,6 +31,6 @@ public class Admin {
 	public void setLicenceNo(long licenceNo) {
 		this.licenceNo = licenceNo;
 	}
-
-
+	
+	
 }
