@@ -13,6 +13,8 @@ public class AdminService {
 	private final AdminRepository adminRepository;
 	private final AppResponseBuilder appResponseBuilder;
 	private final AdminMapper adminMapper;
+	
+	
 	public AdminService(AdminRepository adminRepository, AppResponseBuilder appResponseBuilder,
 			AdminMapper adminMapper) {
 		super();
@@ -35,4 +37,16 @@ public class AdminService {
 		Admin admin = adminRepository.save(adminMapper.mapToUser(adminRequest, new Admin()));	
 		return adminMapper.mapToUserResponse(admin);
 	}
+
+
+	public AdminResponse updateAdmin(AdminRequest adminRequest, String adminId) {
+		return adminRepository.findById(adminId)
+				.map(exAdmin -> {
+					adminMapper.mapToUser(adminRequest, exAdmin);
+					return adminRepository.save(exAdmin);
+				})
+				.map(adminMapper::mapToUserResponse)
+				.orElseThrow(() -> new AdminNotFoundByIdException("Failed to update user"));
+	}
+
 }
