@@ -1,9 +1,12 @@
 package com.jsp.pharmacy.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.jsp.pharmacy.entity.Admin;
 import com.jsp.pharmacy.requestdto.AdminRequest;
 import com.jsp.pharmacy.responsedto.AdminResponse;
 
+@Component
 public class AdminMapper {
 
 	public Admin mapToUser(AdminRequest request,Admin admin) {
