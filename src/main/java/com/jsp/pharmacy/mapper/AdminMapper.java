@@ -18,13 +18,14 @@ public class AdminMapper {
 		return admin;
 	}
 
-	public AdminResponse mapToAdminResponse(Admin user) {
+	public AdminResponse mapToAdminResponse(Admin admin) {
 
 		AdminResponse response = new AdminResponse();
-		response.setId(response.getId());
-		response.setName(response.getName());
-		response.setLicenceNo(response.getLicenceNo());
-		response.setGstNo(response.getGstNo());
+		
+		response.setId(admin.getId());
+		response.setName(admin.getName());
+		response.setLicenceNo(admin.getLicenceNo());
+		response.setGstNo(admin.getGstNo());
 
 		return response;
 	}
