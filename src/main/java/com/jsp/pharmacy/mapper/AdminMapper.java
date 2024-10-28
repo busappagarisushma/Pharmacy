@@ -9,7 +9,7 @@ import com.jsp.pharmacy.responsedto.AdminResponse;
 @Component
 public class AdminMapper {
 
-	public Admin mapToUser(AdminRequest request,Admin admin) {
+	public Admin mapToAdmin(AdminRequest request,Admin admin) {
 
 		admin.setName(request.getName());
 		admin.setLicenceNo(request.getLicenceNo());;
@@ -18,7 +18,7 @@ public class AdminMapper {
 		return admin;
 	}
 
-	public AdminResponse mapToUserResponse(Admin user) {
+	public AdminResponse mapToAdminResponse(Admin user) {
 
 		AdminResponse response = new AdminResponse();
 		response.setId(response.getId());

@@ -32,25 +32,25 @@ public class AdminService {
 	public AdminResponse findByAdminId(String  adminId) {
 
 		return adminRepository.findById(adminId)
-				.map(adminMapper :: mapToUserResponse)
+				.map(adminMapper :: mapToAdminResponse)
 				.orElseThrow(() -> new AdminNotFoundByIdException("failed to find admin"));
 	}
 
 
 	public AdminResponse saveAdmin(AdminRequest adminRequest) {
 
-		Admin admin = adminRepository.save(adminMapper.mapToUser(adminRequest, new Admin()));	
-		return adminMapper.mapToUserResponse(admin);
+		Admin admin = adminRepository.save(adminMapper.mapToAdmin(adminRequest, new Admin()));	
+		return adminMapper.mapToAdminResponse(admin);
 	}
 
 
 	public AdminResponse updateAdmin(AdminRequest adminRequest, String adminId) {
 		return adminRepository.findById(adminId)
 				.map(exAdmin -> {
-					adminMapper.mapToUser(adminRequest, exAdmin);
+					adminMapper.mapToAdmin(adminRequest, exAdmin);
 					return adminRepository.save(exAdmin);
 				})
-				.map(adminMapper::mapToUserResponse)
+				.map(adminMapper::mapToAdminResponse)
 				.orElseThrow(() -> new AdminNotFoundByIdException("Failed to update user"));
 	}
 
@@ -59,7 +59,7 @@ public class AdminService {
 		
 		return adminRepository.findAll()
 				.stream()
-				.map(adminMapper::mapToUserResponse)
+				.map(adminMapper::mapToAdminResponse)
 				.toList();
 	}
 
