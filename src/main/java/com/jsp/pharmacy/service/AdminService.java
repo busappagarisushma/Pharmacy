@@ -1,8 +1,10 @@
 package com.jsp.pharmacy.service;
 
+import com.jsp.pharmacy.entity.Admin;
 import com.jsp.pharmacy.exception.AdminNotFoundByIdException;
 import com.jsp.pharmacy.mapper.AdminMapper;
 import com.jsp.pharmacy.repo.AdminRepository;
+import com.jsp.pharmacy.requestdto.AdminRequest;
 import com.jsp.pharmacy.responsedto.AdminResponse;
 import com.jsp.pharmacy.util.AppResponseBuilder;
 
@@ -18,12 +20,19 @@ public class AdminService {
 		this.appResponseBuilder = appResponseBuilder;
 		this.adminMapper = adminMapper;
 	}
-	
-	
+
+
 	public AdminResponse findByAdminId(String  adminId) {
 
 		return adminRepository.findById(adminId)
 				.map(adminMapper :: mapToUserResponse)
 				.orElseThrow(() -> new AdminNotFoundByIdException("failed to find admin"));
+	}
+
+
+	public AdminResponse saveAdmin(AdminRequest adminRequest) {
+
+		Admin admin = adminRepository.save(adminMapper.mapToUser(adminRequest, new Admin()));	
+		return adminMapper.mapToUserResponse(admin);
 	}
 }
