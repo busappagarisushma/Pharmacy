@@ -2,13 +2,15 @@ package com.jsp.pharmacy.entity;
 
 import org.springframework.data.annotation.Id;
 
+import com.jsp.pharmacy.config.GenerateCustomId;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 
 @Entity
 public class Admin {
 
-	@GeneratedValue()
+	@GenerateCustomId
 	@Id
 	private String Id;
 	private String name;
