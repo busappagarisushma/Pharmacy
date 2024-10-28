@@ -1,5 +1,7 @@
 package com.jsp.pharmacy.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,4 +47,10 @@ public class AdminController {
 		return appResponseBuilder.success(HttpStatus.OK, "admin Updated", response);
 	}
 
+	@GetMapping("/admins")
+	public ResponseEntity<ResponseStructure<List<AdminResponse>>> findAllAdmins(){
+		List<AdminResponse> responses = adminService.findAllUsers();
+		return appResponseBuilder.success(HttpStatus.FOUND,"users found",responses);
+	}
+	
 }

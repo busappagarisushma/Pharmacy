@@ -1,5 +1,7 @@
 package com.jsp.pharmacy.service;
 
+import java.util.List;
+
 import com.jsp.pharmacy.entity.Admin;
 import com.jsp.pharmacy.exception.AdminNotFoundByIdException;
 import com.jsp.pharmacy.mapper.AdminMapper;
@@ -47,6 +49,15 @@ public class AdminService {
 				})
 				.map(adminMapper::mapToUserResponse)
 				.orElseThrow(() -> new AdminNotFoundByIdException("Failed to update user"));
+	}
+
+
+	public List<AdminResponse> findAllUsers() {
+		
+		return adminRepository.findAll()
+				.stream()
+				.map(adminMapper::mapToUserResponse)
+				.toList();
 	}
 
 }
