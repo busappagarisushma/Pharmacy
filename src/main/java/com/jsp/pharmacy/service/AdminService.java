@@ -2,6 +2,8 @@ package com.jsp.pharmacy.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.jsp.pharmacy.entity.Admin;
 import com.jsp.pharmacy.exception.AdminNotFoundByIdException;
 import com.jsp.pharmacy.mapper.AdminMapper;
@@ -10,6 +12,7 @@ import com.jsp.pharmacy.requestdto.AdminRequest;
 import com.jsp.pharmacy.responsedto.AdminResponse;
 import com.jsp.pharmacy.util.AppResponseBuilder;
 
+@Service
 public class AdminService {
 
 	private final AdminRepository adminRepository;
