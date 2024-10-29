@@ -2,28 +2,29 @@ package com.jsp.pharmacy.requestdto;
 
 public class AdminRequest {
 
-	private String name;
-	private double gstNo;
-	private long licenceNo;
+	private String email;
+	private String phoneNumber;
+	private String password;
 	
-	public String getName() {
-		return name;
+	public String getEmail() {
+		return email;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public double getGstNo() {
-		return gstNo;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setGstNo(double gstNo) {
-		this.gstNo = gstNo;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
-	public long getLicenceNo() {
-		return licenceNo;
+	public String getPassword() {
+		return password;
 	}
-	public void setLicenceNo(long licenceNo) {
-		this.licenceNo = licenceNo;
+	public void setPassword(String password) {
+		this.password = password;
 	}
+	
 	
 	
 }

@@ -13,7 +13,7 @@ public class Admin {
 	@GenerateCustomId
 	private String adminId;
 	private String email;
-	private String phoneNUmber;
+	private String phoneNumber;
 	private String password;
 	
 	
@@ -29,11 +29,11 @@ public class Admin {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhoneNUmber() {
-		return phoneNUmber;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhoneNUmber(String phoneNUmber) {
-		this.phoneNUmber = phoneNUmber;
+	public void setPhoneNUmber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	public String getPassword() {
 		return password;
