@@ -55,7 +55,7 @@ public class AdminService {
 	}
 
 
-	public List<AdminResponse> findAllUsers() {
+	public List<AdminResponse> findAllAdmins() {
 		
 		return adminRepository.findAll()
 				.stream()
