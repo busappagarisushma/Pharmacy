@@ -11,9 +11,9 @@ public class AdminMapper {
 
 	public Admin mapToAdmin(AdminRequest request,Admin admin) {
 
-		admin.setName(request.getName());
-		admin.setLicenceNo(request.getLicenceNo());;
-		admin.setGstNo(request.getGstNo());
+		admin.setEmail(request.getEmail());
+		admin.setPassword(request.getPassword());;
+		admin.setPhoneNUmber(request.getPhoneNumber());
 
 		return admin;
 	}
@@ -22,10 +22,8 @@ public class AdminMapper {
 
 		AdminResponse response = new AdminResponse();
 		
-		response.setId(admin.getId());
-		response.setName(admin.getName());
-		response.setLicenceNo(admin.getLicenceNo());
-		response.setGstNo(admin.getGstNo());
+		response.setAdminId(admin.getAdminId());
+		response.setEmail(admin.getEmail());
 
 		return response;
 	}
