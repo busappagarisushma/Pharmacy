@@ -2,35 +2,22 @@ package com.jsp.pharmacy.responsedto;
 
 public class AdminResponse {
 
-	private String Id;
-	private String name;
-	private double gstNo;
-	private long licenceNo;
+	private String adminId;
+	private String email;
 	
-	public String getId() {
-		return Id;
+	public String getAdminId() {
+		return adminId;
 	}
-	public void setId(String id) {
-		Id = id;
+	public void setAdminId(String adminId) {
+		this.adminId = adminId;
 	}
-	public String getName() {
-		return name;
+	public String getEmail() {
+		return email;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public double getGstNo() {
-		return gstNo;
-	}
-	public void setGstNo(double gstNo) {
-		this.gstNo = gstNo;
-	}
-	public long getLicenceNo() {
-		return licenceNo;
-	}
-	public void setLicenceNo(long licenceNo) {
-		this.licenceNo = licenceNo;
-	}
+	
 	
 	
 }
