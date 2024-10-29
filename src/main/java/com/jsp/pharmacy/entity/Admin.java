@@ -11,35 +11,39 @@ public class Admin {
 
 	@Id
 	@GenerateCustomId
-	private String Id;
-	private String name;
-	private double gstNo;
-	private long licenceNo;
+	private String adminId;
+	private String email;
+	private String phoneNUmber;
+	private String password;
 	
-	public String getId() {
-		return Id;
+	
+	public String getAdminId() {
+		return adminId;
 	}
-	public void setId(String id) {
-		Id = id;
+	public void setAdminId(String adminId) {
+		this.adminId = adminId;
 	}
-	public String getName() {
-		return name;
+	public String getEmail() {
+		return email;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public double getGstNo() {
-		return gstNo;
+	public String getPhoneNUmber() {
+		return phoneNUmber;
 	}
-	public void setGstNo(double gstNo) {
-		this.gstNo = gstNo;
+	public void setPhoneNUmber(String phoneNUmber) {
+		this.phoneNUmber = phoneNUmber;
 	}
-	public long getLicenceNo() {
-		return licenceNo;
+	public String getPassword() {
+		return password;
 	}
-	public void setLicenceNo(long licenceNo) {
-		this.licenceNo = licenceNo;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-
-
+	
+	
+	
+	
+	
 }
