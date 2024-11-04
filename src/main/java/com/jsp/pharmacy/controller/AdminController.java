@@ -49,7 +49,7 @@ public class AdminController {
 
 	@GetMapping("/admins")
 	public ResponseEntity<ResponseStructure<List<AdminResponse>>> findAllAdmins(){
-		List<AdminResponse> responses = adminService.findAllUsers();
+		List<AdminResponse> responses = adminService.findAllAdmins();
 		return appResponseBuilder.success(HttpStatus.FOUND,"admin found",responses);
 	}
 	
