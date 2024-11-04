@@ -59,4 +59,14 @@ public class PharmacyService {
 				.orElseThrow(() -> new PharmacyNotFoundByIdException("Failed to Find Pharmacy"));
 	}
 
+
+	public PharmacyResponse updatePharmacy(PharmacyRequest pharmacyRequest, String pharmacyId) {
+		return pharmacyRepository.findById(pharmacyId)
+				.map((pharmacy) -> {
+					pharmacy = pharmacyRepository.save(pharmacyMapper.mapToPharmacy(pharmacyRequest, pharmacy));
+					return pharmacyMapper.mapToPharmacyResponse(pharmacy);
+				})
+				.orElseThrow(() -> new PharmacyNotFoundByIdException("Failed to Update the Pharmacy"));
+	}
+
 }
