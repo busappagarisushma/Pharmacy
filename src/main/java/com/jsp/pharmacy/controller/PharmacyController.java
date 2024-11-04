@@ -35,10 +35,11 @@ public class PharmacyController {
 		return appResponseBuilder.success(HttpStatus.CREATED,"Pharmacy Added", pharmacyResponse);
 	}
 	
+	
 	@GetMapping("/pharmacy")
 	public ResponseEntity<ResponseStructure<List<PharmacyResponse>>> findAllPharmacy(){
 		List<PharmacyResponse> 	pharmacyResponses = pharmacyService.findAllPharmacy();
-		return appResponseBuilder.success(HttpStatus.FOUND, "pharmacies Found", pharmacyResponses)
+		return appResponseBuilder.success(HttpStatus.FOUND, "pharmacies Found", pharmacyResponses);
 	}
 	
 }

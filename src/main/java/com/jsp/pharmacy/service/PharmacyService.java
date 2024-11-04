@@ -1,5 +1,7 @@
 package com.jsp.pharmacy.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.jsp.pharmacy.entity.Pharmacy;
@@ -38,6 +40,15 @@ public class PharmacyService {
 				})
 				.map(pharmacyMapper::mapToPharmacyResponse)
 				.orElseThrow(()-> new AdminNotFoundByIdException("Failed to add pharmacy because admin not found"));
+	}
+
+	
+
+	public List<PharmacyResponse> findAllPharmacy() {
+		return pharmacyRepository.findAll()
+				.stream()
+				.map(pharmacyMapper :: mapToPharmacyResponse)
+				.toList();
 	}
 
 }
