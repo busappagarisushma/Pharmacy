@@ -1,9 +1,12 @@
 package com.jsp.pharmacy.entity;
 
+import java.util.List;
+
 import com.jsp.pharmacy.config.GenerateCustomId;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Pharmacy {
@@ -15,6 +18,16 @@ public class Pharmacy {
 	private String gstNo;
 	private String licenceNo;
 	
+	@OneToMany
+	private List<Patient> patients;
+	
+	
+	public List<Patient> getPatients() {
+		return patients;
+	}
+	public void setPatients(List<Patient> patients) {
+		this.patients = patients;
+	}
 	
 	public String getPharmacyId() {
 		return PharmacyId;
