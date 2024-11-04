@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.jsp.pharmacy.entity.Pharmacy;
 import com.jsp.pharmacy.exception.AdminNotFoundByIdException;
+import com.jsp.pharmacy.exception.PharmacyNotFoundByIdException;
 import com.jsp.pharmacy.mapper.PharmacyMapper;
 import com.jsp.pharmacy.repo.AdminRepository;
 import com.jsp.pharmacy.repo.PharmacyRepository;
@@ -14,11 +15,11 @@ import com.jsp.pharmacy.responsedto.PharmacyResponse;
 
 @Service
 public class PharmacyService {
-	
+
 	private final PharmacyRepository pharmacyRepository;
 	private  final AdminRepository adminRepository;
 	private final PharmacyMapper pharmacyMapper;
-	
+
 
 	public PharmacyService(PharmacyRepository pharmacyRepository, AdminRepository adminRepository,
 			PharmacyMapper pharmacyMapper) {
@@ -42,13 +43,20 @@ public class PharmacyService {
 				.orElseThrow(()-> new AdminNotFoundByIdException("Failed to add pharmacy because admin not found"));
 	}
 
-	
+
 
 	public List<PharmacyResponse> findAllPharmacy() {
 		return pharmacyRepository.findAll()
 				.stream()
 				.map(pharmacyMapper :: mapToPharmacyResponse)
 				.toList();
+	}
+
+
+	public PharmacyResponse findPharmacy(String adminId) {
+		return adminRepository.findPharmacyByAdminId(adminId)
+				.map(pharmacyMapper :: mapToPharmacyResponse)
+				.orElseThrow(() -> new PharmacyNotFoundByIdException("Failed to Find Pharmacy"));
 	}
 
 }

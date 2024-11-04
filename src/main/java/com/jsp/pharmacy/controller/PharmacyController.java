@@ -42,4 +42,10 @@ public class PharmacyController {
 		return appResponseBuilder.success(HttpStatus.FOUND, "pharmacies Found", pharmacyResponses);
 	}
 	
+	@GetMapping("/admins/{adminId}/pharmacy")
+	public ResponseEntity<ResponseStructure<PharmacyResponse>> findPharmacy(@PathVariable String adminId){
+		PharmacyResponse pharmacyResponse = pharmacyService.findPharmacy(adminId);
+		return appResponseBuilder.success(HttpStatus.FOUND, "Pharmacy Found", pharmacyResponse);
+	}
+	
 }
