@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,4 +42,12 @@ public class PatientController {
 		
 	} 
 
+	@PutMapping("/patients/{patientId}")
+	public ResponseEntity<ResponseStructure<PatientResponse>> updatePatient(@RequestBody PatientRequest patientRequest,
+			@PathVariable String patientId)
+			{
+		PatientResponse response=patientService.updatePatient(patientRequest,patientId);
+		return appResponseBuilder.success(HttpStatus.OK, "Patients Updated", response);
+	}
+	
 }

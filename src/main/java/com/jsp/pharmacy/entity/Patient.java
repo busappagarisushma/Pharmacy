@@ -16,7 +16,7 @@ public class Patient {
 
 	@Id
 	@GenerateCustomId
-	private String PatientId;
+	private String patientId;
 	private String name;
 	private String phoneNumber;
 	private String email;
@@ -28,10 +28,10 @@ public class Patient {
 	private Pharmacy pharmacy;
 	
 	public String getPatientId() {
-		return PatientId;
+		return patientId;
 	}
 	public void setPatientId(String patientId) {
-		PatientId = patientId;
+		patientId = patientId;
 	}
 	public String getName() {
 		return name;
