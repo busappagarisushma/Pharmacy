@@ -12,8 +12,9 @@ public class PatientResponse {
 	private String PatientId;
 	private String name;
 	private String email;
-	private Gender gender;
-	private Date date;
+
+
+
 	public String getPatientId() {
 		return PatientId;
 	}
@@ -31,18 +32,6 @@ public class PatientResponse {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public Gender getGender() {
-		return gender;
-	}
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
 	}
 
 

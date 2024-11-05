@@ -6,6 +6,7 @@ public class PharmacyResponse {
 	private String name;
 	private String gstNo;
 	private String licenceNo;
+	
 	public String getPharmacyId() {
 		return PharmacyId;
 	}
