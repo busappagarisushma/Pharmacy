@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Patient {
@@ -23,7 +24,9 @@ public class Patient {
 	private Gender gender;
 	private Date date;
 
-
+	@ManyToOne
+	private Pharmacy pharmacy;
+	
 	public String getPatientId() {
 		return PatientId;
 	}
@@ -35,6 +38,12 @@ public class Patient {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public Pharmacy getPharmacy() {
+		return pharmacy;
+	}
+	public void setPharmacy(Pharmacy pharmacy) {
+		this.pharmacy = pharmacy;
 	}
 	public String getPhoneNumber() {
 		return phoneNumber;

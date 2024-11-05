@@ -18,7 +18,7 @@ public class Pharmacy {
 	private String gstNo;
 	private String licenceNo;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "pharmacy")
 	private List<Patient> patients;
 	
 	
