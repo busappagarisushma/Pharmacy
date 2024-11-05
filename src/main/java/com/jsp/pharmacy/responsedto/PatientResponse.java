@@ -1,12 +1,5 @@
 package com.jsp.pharmacy.responsedto;
 
-import java.sql.Date;
-
-import com.jsp.pharmacy.enums.Gender;
-
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-
 public class PatientResponse {
 
 	private String PatientId;
