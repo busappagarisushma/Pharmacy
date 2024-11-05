@@ -1,10 +1,12 @@
 package com.jsp.pharmacy.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.jsp.pharmacy.entity.Patient;
+import com.jsp.pharmacy.exception.NoPatientFoundException;
 import com.jsp.pharmacy.exception.PharmacyNotFoundByIdException;
 import com.jsp.pharmacy.mapper.PatientMapper;
 import com.jsp.pharmacy.repo.PatientRepository;
@@ -45,5 +47,15 @@ public class PatientService {
 		
 		}).orElseThrow(() -> new PharmacyNotFoundByIdException("Failed to add patient beacause pharmacy id not there"));
 	}
+	
+	public List<PatientResponse> findAllPatientsByPharmacy(String pharmacyId) {
+		List<Patient> patients = patientRepository.findPatientsByPharmacy(pharmacyId);
+		if(patients.isEmpty())
+			throw new NoPatientFoundException("Failed to find all Pharmacy");
+		return patients.stream()
+				.map(patientMapper::mapToPatientResponse)
+				.toList();
+	}
+
 
 }

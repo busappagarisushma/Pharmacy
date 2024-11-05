@@ -13,7 +13,7 @@ public class Pharmacy {
 
 	@Id
 	@GenerateCustomId
-	private String PharmacyId;
+	private String pharmacyId;
 	private String name;
 	private String gstNo;
 	private String licenceNo;
@@ -30,10 +30,10 @@ public class Pharmacy {
 	}
 	
 	public String getPharmacyId() {
-		return PharmacyId;
+		return pharmacyId;
 	}
 	public void setPharmacyId(String pharmacyId) {
-		PharmacyId = pharmacyId;
+		pharmacyId = pharmacyId;
 	}
 	public String getName() {
 		return name;

@@ -10,6 +10,6 @@ import com.jsp.pharmacy.entity.Patient;
 
 public interface PatientRepository extends JpaRepository<Patient, String>{
 
-//	@Query("SELECT p FROM Patient WHERE p.pharmacy.pharmacyId = :pharmacyId")
-//	public List<Patient> findPatientByPharmacy(@Param("pharmacyId")String pharmacyId);
+	@Query("SELECT p FROM Patient p WHERE p.pharmacy.pharmacyId = :pharmacyId")
+	public List<Patient> findPatientsByPharmacy(@Param("pharmacyId")String pharmacyId);
 }
