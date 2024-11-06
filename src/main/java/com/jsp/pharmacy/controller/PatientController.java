@@ -47,7 +47,7 @@ public class PatientController {
 			@PathVariable String patientId)
 			{
 		PatientResponse response=patientService.updatePatient(patientRequest,patientId);
-		return appResponseBuilder.success(HttpStatus.OK, "Patients Updated", response);
+		return appResponseBuilder.success(HttpStatus.OK, "Patients Updated", response);
 	}
 	
 }
