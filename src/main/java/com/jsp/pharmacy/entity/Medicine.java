@@ -1,4 +1,4 @@
-package com.jsp.pharmacy.controller;
+package com.jsp.pharmacy.entity;
 
 import java.sql.Date;
 import java.time.LocalDate;

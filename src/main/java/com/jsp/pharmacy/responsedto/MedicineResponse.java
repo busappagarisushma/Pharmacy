@@ -81,8 +81,5 @@ public class MedicineResponse {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
-	
-	
-	
+		
 }
