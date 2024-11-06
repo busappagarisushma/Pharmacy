@@ -7,6 +7,7 @@ import com.jsp.pharmacy.config.GenerateCustomId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Pharmacy {
@@ -21,10 +22,17 @@ public class Pharmacy {
 	@OneToMany(mappedBy = "pharmacy")
 	private List<Patient> patients;
 	
-	@OneToMany()
+	public Admin getAdmin() {
+		return admin;
+	}
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+	@OneToMany(mappedBy = "pharmacy")
 	private List<Medicine> medicines;
 	
-	
+	@OneToOne(mappedBy = "pharmacy")
+	private Admin admin;
 	
 	public List<Medicine> getMedicines() {
 		return medicines;
