@@ -10,7 +10,6 @@ import com.jsp.pharmacy.entity.Medicine;
 
 public interface MedicineRepository extends JpaRepository<Medicine, String>{
 
-	@Query("SELECT m FROM Medicine m WHERE m.name = :input OR m.ingredients LIKE %:input%")
-	List<Medicine> findByNameOrIngredients(@Param("input") String input);
+	List<Medicine> findMedicineByNameLikeIgnoreCaseOrIngredientsLikeIgnoreCase(String name, String ingredient);
 
 }

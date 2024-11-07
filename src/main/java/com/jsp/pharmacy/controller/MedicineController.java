@@ -38,9 +38,9 @@ public class MedicineController {
 	}
 
 
-	@GetMapping("/medicines/{input}")
-	public ResponseEntity<ResponseStructure<List<MedicineResponse>>> findMedicineByNameOrIngredient(@PathVariable String input){
-		List<MedicineResponse> response =	medicineService.findMedicineByNameOrIngredient(input);
+	@GetMapping("/medicines/{name}/{ingredient}")
+	public ResponseEntity<ResponseStructure<List<MedicineResponse>>> findMedicineByNameLikeIgnoreCaseOrIngredientLikeIgnoreCase(@PathVariable String name, @PathVariable  String ingredient){
+		List<MedicineResponse> response =	medicineService.findMedicineByNameLikeOrIngredientsLike(name,ingredient);
 		return appResponseBuilder.success(HttpStatus.FOUND, "Medicine Found", response);
 	}
 

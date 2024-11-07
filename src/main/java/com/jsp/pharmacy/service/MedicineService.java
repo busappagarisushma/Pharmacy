@@ -91,11 +91,11 @@ public class MedicineService {
 
 	}
 
-	public List<MedicineResponse> findMedicineByNameOrIngredient(String input) {
-		List<Medicine> medicines = medicineRepository.findByNameOrIngredients(input);
+	public List<MedicineResponse> findMedicineByNameLikeOrIngredientsLike(String name,String ingredient) {
+		List<Medicine> medicines = medicineRepository.findMedicineByNameLikeIgnoreCaseOrIngredientsLikeIgnoreCase(name,ingredient);
 
 		if (medicines.isEmpty()) {
-			throw new NoMedicineFoundException("No medicines found with input: " + input);
+			throw new NoMedicineFoundException("No medicines found with input: "+name+" or "+ingredient);
 		}
 
 		return medicines.stream()
