@@ -1,0 +1,28 @@
+package com.jsp.pharmacy.requestdto;
+
+public class PharmacyRequest {
+
+	private String name;
+	private String gstNo;
+	private String licenceNo;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getGstNo() {
+		return gstNo;
+	}
+	public void setGstNo(String gstNo) {
+		this.gstNo = gstNo;
+	}
+	public String getLicenceNo() {
+		return licenceNo;
+	}
+	public void setLicenceNo(String licenceNo) {
+		this.licenceNo = licenceNo;
+	}
+	
+	
+}
