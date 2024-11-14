@@ -18,22 +18,28 @@ public class Pharmacy {
 	private String name;
 	private String gstNo;
 	private String licenceNo;
-	
+
 	@OneToMany(mappedBy = "pharmacy")
 	private List<Patient> patients;
-	
-	public Admin getAdmin() {
-		return admin;
-	}
-	public void setAdmin(Admin admin) {
-		this.admin = admin;
-	}
+
+
 	@OneToMany(mappedBy = "pharmacy")
 	private List<Medicine> medicines;
-	
+
 	@OneToOne(mappedBy = "pharmacy")
 	private Admin admin;
-	
+
+	@OneToMany(mappedBy = "pharmacy")
+	private List<Transaction> transactions;
+
+
+
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
+	}
 	public List<Medicine> getMedicines() {
 		return medicines;
 	}
@@ -46,7 +52,7 @@ public class Pharmacy {
 	public void setPatients(List<Patient> patients) {
 		this.patients = patients;
 	}
-	
+
 	public String getPharmacyId() {
 		return pharmacyId;
 	}
@@ -71,7 +77,11 @@ public class Pharmacy {
 	public void setLicenceNo(String licenceNo) {
 		this.licenceNo = licenceNo;
 	}
-	
-	
-	
+	public Admin getAdmin() {
+		return admin;
+	}
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
 }
