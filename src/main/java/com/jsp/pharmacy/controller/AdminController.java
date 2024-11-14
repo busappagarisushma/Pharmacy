@@ -35,7 +35,7 @@ public class AdminController {
 		return appResponseBuilder.success(HttpStatus.FOUND, "admin found",response);
 	}
 
-	@PostMapping("/admins")
+	@PostMapping("/register")
 	public ResponseEntity<ResponseStructure<AdminResponse>> saveAdmin(@RequestBody AdminRequest adminRequest){
 		AdminResponse response = adminService.saveAdmin(adminRequest);
 		return appResponseBuilder.success(HttpStatus.CREATED, "admin created", response);

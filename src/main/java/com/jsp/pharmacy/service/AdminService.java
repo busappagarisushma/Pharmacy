@@ -2,6 +2,7 @@ package com.jsp.pharmacy.service;
 
 import java.util.List;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.jsp.pharmacy.entity.Admin;
@@ -10,22 +11,20 @@ import com.jsp.pharmacy.mapper.AdminMapper;
 import com.jsp.pharmacy.repo.AdminRepository;
 import com.jsp.pharmacy.requestdto.AdminRequest;
 import com.jsp.pharmacy.responsedto.AdminResponse;
-import com.jsp.pharmacy.util.AppResponseBuilder;
 
 @Service
 public class AdminService {
 
 	private final AdminRepository adminRepository;
-	private final AppResponseBuilder appResponseBuilder;
 	private final AdminMapper adminMapper;
+	private final PasswordEncoder passwordEncoder;
 	
-	
-	public AdminService(AdminRepository adminRepository, AppResponseBuilder appResponseBuilder,
-			AdminMapper adminMapper) {
+	public AdminService(AdminRepository adminRepository, AdminMapper adminMapper,
+			PasswordEncoder passwordEncoder) {
 		super();
 		this.adminRepository = adminRepository;
-		this.appResponseBuilder = appResponseBuilder;
 		this.adminMapper = adminMapper;
+		this.passwordEncoder = passwordEncoder;
 	}
 
 
@@ -39,8 +38,10 @@ public class AdminService {
 
 	public AdminResponse saveAdmin(AdminRequest adminRequest) {
 
-		Admin admin = adminRepository.save(adminMapper.mapToAdmin(adminRequest, new Admin()));	
-		return adminMapper.mapToAdminResponse(admin);
+		Admin admin = adminMapper.mapToAdmin(adminRequest, new Admin());
+		admin.setPassword(passwordEncoder.encode(admin.getPassword()));
+		adminRepository.save(admin);
+		return  adminMapper.mapToAdminResponse(admin);
 	}
 
 
