@@ -15,7 +15,7 @@ public class PatientMapper {
 public Patient mapToPatient(PatientRequest patientRequest,Patient patient) {
 		
 		patient.setName(patientRequest.getName());
-		patient.setPhoneNumber(patient.getPhoneNumber());
+		patient.setPhoneNumber(patientRequest.getPhoneNumber());
 		patient.setEmail(patientRequest.getEmail());
 		patient.setGender(patientRequest.getGender());
 		patient.setDate(patientRequest.getDate());
