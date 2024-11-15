@@ -2,6 +2,7 @@ package com.jsp.pharmacy.entity;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 
 import com.jsp.pharmacy.config.GenerateCustomId;
 import com.jsp.pharmacy.enums.Form;
@@ -11,10 +12,11 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Medicine {
-	
+
 	@Id
 	@GenerateCustomId
 	private String medicineId;
@@ -28,10 +30,20 @@ public class Medicine {
 	private int stockQuantity;
 	private LocalDate expiryDate;
 	private Double price;
-	
+
 	@ManyToOne
 	private Pharmacy pharmacy;
-	
+
+	@OneToMany
+	private List<Transaction> transactions;
+
+
+	public List<Transaction> getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(List<Transaction> transactions) {
+		this.transactions = transactions;
+	}
 	public Pharmacy getPharmacy() {
 		return pharmacy;
 	}
@@ -98,7 +110,7 @@ public class Medicine {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
-	
-	
+
+
+
 }
